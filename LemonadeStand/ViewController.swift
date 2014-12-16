@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     var iceCubeInventory = 0
     var lemonsToPurchase = 0
     var iceCubesToPurchase = 0
+    var lemonsToMix = 0
+    var iceCubesToMix = 0
     
     override func viewDidLoad() {
 
@@ -71,12 +73,22 @@ class ViewController: UIViewController {
     
     // step 3 actions
     @IBAction func addLemonsToMixButtonPressed(sender: AnyObject) {
+        var lemon = inventoryItem()
+        updateMix(lemon, delta: 1)
     }
     @IBAction func reduceLemonsToMixButtonPressed(sender: AnyObject) {
+        var lemon = inventoryItem()
+        updateMix(lemon, delta: -1)
     }
     @IBAction func addIceCubesToMixButtonPressed(sender: AnyObject) {
+        var iceCube = inventoryItem()
+        iceCube.isLemon = false
+        updateMix(iceCube, delta: 1)
     }
     @IBAction func reduceIceCubesToMixButtonPressed(sender: AnyObject) {
+        var iceCube = inventoryItem()
+        iceCube.isLemon = false
+        updateMix(iceCube, delta: -1)
     }
     
     // Start day button pressed
@@ -114,7 +126,24 @@ class ViewController: UIViewController {
     lemonsToPurchaseLabel.text = "\(lemonsToPurchase)"
     iceCubesToPurchaseLabel.text = "\(iceCubesToPurchase)"
     }
-    
+    func updateMix (product: inventoryItem, delta: Int) {
+//        println(product)
+        if (product.isLemon == true) {
+            if ((lemonsToMix + delta) > -1) {
+                lemonsToMix += delta
+                lemonInventory += delta
+            }
+
+        } else {
+            if ((iceCubesToMix + delta) > -1) {
+                iceCubesToMix += delta
+                iceCubeInventory += delta
+            }
+        }
+        moreLemonsLabel.text = "\(lemonsToMix)"
+        moreIceCubesLabel.text = "\(iceCubesToMix)"
+        loadTopLabels()
+    }
 
 
 }
