@@ -11,6 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     
     // define objects
+    @IBOutlet weak var moneyLeftInTheBankLabel: UILabel!
+    @IBOutlet weak var lemonsLeftLabel: UILabel!
+    @IBOutlet weak var iceCubesLeftLabel: UILabel!
+    
+    // step 2 outlets
+    @IBOutlet weak var lemonsToPurchaseLabel: UILabel!
+    @IBOutlet weak var iceCubesToPurchaseLabel: UILabel!
+    // step 3 outlets
+    @IBOutlet weak var moreLemonsLabel: UILabel!
+    @IBOutlet weak var moreIceCubesLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +32,32 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // step 2 actions / buttons
+    @IBAction func addLemonsToPurchaseButtonPressed(sender: AnyObject) {
+        // add lemons to purchase supplies
+    }
+    @IBAction func reduceLemonsToPurchaseButtonPressed(sender: AnyObject) {
+    }
+    @IBAction func addIceCubesToPurchaseButtonPressed(sender: AnyObject) {
+    }
+    @IBAction func reduceLEmonsToPurchaseButtonPressed(sender: AnyObject) {
+        // REDUCE ICE CUBES, NOT!!!!
+    }
+    // step 3 actions
+    @IBAction func addLemonsToMixButtonPressed(sender: AnyObject) {
+    }
+    @IBAction func reduceLemonsToMixButtonPressed(sender: AnyObject) {
+    }
+    @IBAction func addIceCubesToMixButtonPressed(sender: AnyObject) {
+    }
+    @IBAction func reduceIceCubesToMixButtonPressed(sender: AnyObject) {
+    }
+    
+    // Start day button pressed
+    @IBAction func startDayButtonPressed(sender: AnyObject) {
+    }
+    
 
 
 }
