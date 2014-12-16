@@ -49,7 +49,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="103" width="92" height="21"/>
+                                    <rect key="frame" x="164" y="103" width="183" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1: Purchase Supplies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouB-QY-uw7">
@@ -95,15 +95,6 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="54" y="221" width="157" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSp-Nf-ZYc">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="265" y="192" width="24" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAd-wz-MLn">
@@ -279,6 +270,15 @@
                                     <action selector="reduceIceCubesToPurchaseButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7KG-In-jQ8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vr-kU-9sC">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="265" y="192" width="24" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -292,7 +292,6 @@
                                 <exclude reference="dGp-HB-8L7"/>
                                 <exclude reference="nwx-jR-Wch"/>
                                 <exclude reference="Euc-OU-dKR"/>
-                                <exclude reference="HSp-Nf-ZYc"/>
                                 <exclude reference="wAd-wz-MLn"/>
                                 <exclude reference="3r0-Xw-hmP"/>
                                 <exclude reference="WaV-kq-OK9"/>
@@ -309,6 +308,7 @@
                                 <exclude reference="wgB-kI-lKQ"/>
                                 <exclude reference="rIC-PL-jjc"/>
                                 <exclude reference="531-MK-D8o"/>
+                                <exclude reference="1Vr-kU-9sC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -322,7 +322,6 @@
                                 <include reference="dGp-HB-8L7"/>
                                 <include reference="nwx-jR-Wch"/>
                                 <include reference="Euc-OU-dKR"/>
-                                <include reference="HSp-Nf-ZYc"/>
                                 <include reference="wAd-wz-MLn"/>
                                 <include reference="3r0-Xw-hmP"/>
                                 <include reference="WaV-kq-OK9"/>
@@ -339,6 +338,7 @@
                                 <include reference="wgB-kI-lKQ"/>
                                 <include reference="rIC-PL-jjc"/>
                                 <include reference="531-MK-D8o"/>
+                                <include reference="1Vr-kU-9sC"/>
                             </mask>
                         </variation>
                     </view>
@@ -346,7 +346,7 @@
                         <outlet property="iceCubesLeftLabel" destination="uad-p0-Jql" id="Hmn-aq-Xiv"/>
                         <outlet property="iceCubesToPurchaseLabel" destination="wAd-wz-MLn" id="VEL-T0-meE"/>
                         <outlet property="lemonsLeftLabel" destination="OQi-uV-cS9" id="deU-3Y-zGk"/>
-                        <outlet property="lemonsToPurchaseLabel" destination="wAd-wz-MLn" id="DQr-OO-i8X"/>
+                        <outlet property="lemonsToPurchaseLabel" destination="1Vr-kU-9sC" id="PL7-RV-158"/>
                         <outlet property="moneyLeftInTheBankLabel" destination="Qfu-Md-dTh" id="Lme-ad-pgT"/>
                         <outlet property="moreIceCubesLabel" destination="fev-Cf-cXl" id="79l-0g-wCU"/>
                         <outlet property="moreLemonsLabel" destination="jr0-Sm-ETi" id="EdF-re-zc9"/>
