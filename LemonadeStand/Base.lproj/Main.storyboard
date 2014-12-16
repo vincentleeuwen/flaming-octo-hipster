@@ -151,18 +151,6 @@
                                     <action selector="reduceLemonsToPurchaseButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Pn3-F7-8jf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcP-Ta-ppg">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="-">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="317" y="216" width="30" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="reduceLEmonsToPurchaseButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oUD-ej-mbg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemons:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otV-Ki-sTP">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -279,6 +267,18 @@
                                     <action selector="startDayButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t1O-V9-shx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="531-MK-D8o">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="-">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="317" y="211" width="30" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="reduceIceCubesToPurchaseButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7KG-In-jQ8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -297,7 +297,6 @@
                                 <exclude reference="3r0-Xw-hmP"/>
                                 <exclude reference="WaV-kq-OK9"/>
                                 <exclude reference="QHE-IB-rF3"/>
-                                <exclude reference="lcP-Ta-ppg"/>
                                 <exclude reference="otV-Ki-sTP"/>
                                 <exclude reference="awg-At-mWe"/>
                                 <exclude reference="jr0-Sm-ETi"/>
@@ -309,6 +308,7 @@
                                 <exclude reference="hGV-HD-rNQ"/>
                                 <exclude reference="wgB-kI-lKQ"/>
                                 <exclude reference="rIC-PL-jjc"/>
+                                <exclude reference="531-MK-D8o"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -327,7 +327,6 @@
                                 <include reference="3r0-Xw-hmP"/>
                                 <include reference="WaV-kq-OK9"/>
                                 <include reference="QHE-IB-rF3"/>
-                                <include reference="lcP-Ta-ppg"/>
                                 <include reference="otV-Ki-sTP"/>
                                 <include reference="awg-At-mWe"/>
                                 <include reference="jr0-Sm-ETi"/>
@@ -339,6 +338,7 @@
                                 <include reference="hGV-HD-rNQ"/>
                                 <include reference="wgB-kI-lKQ"/>
                                 <include reference="rIC-PL-jjc"/>
+                                <include reference="531-MK-D8o"/>
                             </mask>
                         </variation>
                     </view>

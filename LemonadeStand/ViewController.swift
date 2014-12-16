@@ -41,9 +41,10 @@ class ViewController: UIViewController {
     }
     @IBAction func addIceCubesToPurchaseButtonPressed(sender: AnyObject) {
     }
-    @IBAction func reduceLEmonsToPurchaseButtonPressed(sender: AnyObject) {
-        // REDUCE ICE CUBES, NOT!!!!
+    @IBAction func reduceIceCubesToPurchaseButtonPressed(sender: AnyObject) {
     }
+    
+    
     // step 3 actions
     @IBAction func addLemonsToMixButtonPressed(sender: AnyObject) {
     }
