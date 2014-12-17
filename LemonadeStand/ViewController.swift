@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         supply.lemons = 1
         supply.iceCubes = 1
 //        println(moneyLeft)
-        self.loadTopLabels()
+        self.loadAllLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,20 +50,28 @@ class ViewController: UIViewController {
     // step 2 actions / buttons
     @IBAction func addLemonsToPurchaseButtonPressed(sender: AnyObject) {
         // add lemons to purchase supplies
-        println("add lemon to purchases clicked!")
+//        println("add lemon to purchases clicked!")
         var item = inventoryItem()
-        addToPurchases(item)
+        if (moneyInTheBank(supply) == true) {
+            addToPurchases(item)
+        } else {
+            showAlertWithText(message: "You have no more dinero!")
+        }
     }
     @IBAction func reduceLemonsToPurchaseButtonPressed(sender: AnyObject) {
         var item = inventoryItem()
         removeFromPurchases(item)
     }
     @IBAction func addIceCubesToPurchaseButtonPressed(sender: AnyObject) {
-        println("add ice cube to purchases clicked!")
+//        println("add ice cube to purchases clicked!")
         var item = inventoryItem()
         item.isLemon = false
 //        println(item)
-        addToPurchases(item)
+        if (moneyInTheBank(supply) == true) {
+            addToPurchases(item)
+        } else {
+            showAlertWithText(message: "You have no more dinero!")
+        }
     }
     @IBAction func reduceIceCubesToPurchaseButtonPressed(sender: AnyObject) {
         var item = inventoryItem()
@@ -96,56 +104,89 @@ class ViewController: UIViewController {
     @IBAction func startDayButtonPressed(sender: AnyObject) {
     }
     
-    func loadTopLabels () {
+    func loadAllLabels () {
         moneyLeftInTheBankLabel.text = "$" + "\(supply.money)"
         lemonsLeftLabel.text = "\(supply.lemons)" + " Lemons"
         iceCubesLeftLabel.text = "\(supply.iceCubes)" + " Ice Cubezzz"
+        moreLemonsLabel.text = "\(lemonsToMix)"
+        moreIceCubesLabel.text = "\(iceCubesToMix)"
+        lemonsToPurchaseLabel.text = "\(lemonsToPurchase)"
+        iceCubesToPurchaseLabel.text = "\(iceCubesToPurchase)"
     }
     
     func addToPurchases (product: inventoryItem) {
         println(product)
         if (product.isLemon == true) {
             lemonsToPurchase += 1
-            println(lemonsToPurchase)
+            supply.lemons += 1
+            supply.money -= product.lemonPrice
+//            println(lemonsToPurchase)
         } else {
             println("Adding ice cubes...")
             iceCubesToPurchase += 1
+            supply.lemons += 1
+            supply.money -= product.iceCubePrice
         }
-    lemonsToPurchaseLabel.text = "\(lemonsToPurchase)"
-    iceCubesToPurchaseLabel.text = "\(iceCubesToPurchase)"
+        
+    loadAllLabels()
     }
     func removeFromPurchases (product: inventoryItem) {
         if (product.isLemon == true) {
             if (lemonsToPurchase > 0) {
                 lemonsToPurchase -= 1
+                supply.lemons -= 1
+                supply.money += product.lemonPrice
             }
         } else {
             if (iceCubesToPurchase > 0) {
                 iceCubesToPurchase -= 1
+                supply.iceCubes -= 1
+                supply.money += product.iceCubePrice
             }
         }
-    lemonsToPurchaseLabel.text = "\(lemonsToPurchase)"
-    iceCubesToPurchaseLabel.text = "\(iceCubesToPurchase)"
+    loadAllLabels()
     }
     func updateMix (product: inventoryItem, delta: Int) {
 //        println(product)
         if (product.isLemon == true) {
             if ((lemonsToMix + delta) > -1) {
                 lemonsToMix += delta
-                supply.lemons += delta
+                if (supply.lemons > 0 ) {
+                    supply.lemons -= delta
+                } else {
+                    showAlertWithText(message: "You have no more lemons!")
+                }
             }
 
         } else {
             if ((iceCubesToMix + delta) > -1) {
                 iceCubesToMix += delta
-                supply.iceCubes += delta
+                if (supply.iceCubes > 0) {
+                    supply.iceCubes -= delta
+                } else {
+                    showAlertWithText(message: "No more ice cubes!")
+                }
+
             }
         }
-        moreLemonsLabel.text = "\(lemonsToMix)"
-        moreIceCubesLabel.text = "\(iceCubesToMix)"
-        loadTopLabels()
+    loadAllLabels()
     }
 
+    func moneyInTheBank (supply: Supplies) -> Bool {
+        if (supply.money > 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func showAlertWithText (header: String = "Warning", message: String) {
+        
+        var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
 
 }
 

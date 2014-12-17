@@ -10,6 +10,8 @@ import Foundation
 
 struct inventoryItem {
     var isLemon = true
+    var lemonPrice = 2
+    var iceCubePrice = 1
 }
 
 struct Supplies {
