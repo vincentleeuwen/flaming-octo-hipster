@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var moreIceCubesLabel: UILabel!
     
     // set variables
+    var supply = Supplies()
     var moneyLeft = 0
     var lemonInventory = 0
     var iceCubeInventory = 0
@@ -34,10 +35,10 @@ class ViewController: UIViewController {
 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        moneyLeft = 10
-        lemonInventory = 1
-        iceCubeInventory = 1
-        println(moneyLeft)
+        supply.money = 10
+        supply.lemons = 1
+        supply.iceCubes = 1
+//        println(moneyLeft)
         self.loadTopLabels()
     }
 
@@ -96,9 +97,9 @@ class ViewController: UIViewController {
     }
     
     func loadTopLabels () {
-        moneyLeftInTheBankLabel.text = "$" + "\(moneyLeft)"
-        lemonsLeftLabel.text = "\(lemonInventory)" + " Lemons"
-        iceCubesLeftLabel.text = "\(iceCubeInventory)" + " Ice Cubezzz"
+        moneyLeftInTheBankLabel.text = "$" + "\(supply.money)"
+        lemonsLeftLabel.text = "\(supply.lemons)" + " Lemons"
+        iceCubesLeftLabel.text = "\(supply.iceCubes)" + " Ice Cubezzz"
     }
     
     func addToPurchases (product: inventoryItem) {
@@ -131,13 +132,13 @@ class ViewController: UIViewController {
         if (product.isLemon == true) {
             if ((lemonsToMix + delta) > -1) {
                 lemonsToMix += delta
-                lemonInventory += delta
+                supply.lemons += delta
             }
 
         } else {
             if ((iceCubesToMix + delta) > -1) {
                 iceCubesToMix += delta
-                iceCubeInventory += delta
+                supply.iceCubes += delta
             }
         }
         moreLemonsLabel.text = "\(lemonsToMix)"

@@ -11,3 +11,9 @@ import Foundation
 struct inventoryItem {
     var isLemon = true
 }
+
+struct Supplies {
+    var money = 0
+    var lemons = 0
+    var iceCubes = 0
+}
