@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		585254DC1A41FB97000C816A /* Simulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585254DB1A41FB97000C816A /* Simulator.swift */; };
 		587C01C21A408EC3008F58EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C01C11A408EC3008F58EB /* AppDelegate.swift */; };
 		587C01C41A408EC3008F58EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C01C31A408EC3008F58EB /* ViewController.swift */; };
 		587C01C71A408EC3008F58EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587C01C51A408EC3008F58EB /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		585254DB1A41FB97000C816A /* Simulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Simulator.swift; sourceTree = "<group>"; };
 		587C01BC1A408EC3008F58EB /* LemonadeStand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonadeStand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587C01C01A408EC3008F58EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		587C01C11A408EC3008F58EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				587C01C31A408EC3008F58EB /* ViewController.swift */,
 				587C01C51A408EC3008F58EB /* Main.storyboard */,
 				589E48711A40A1E6008FC76D /* InventoryBrain.swift */,
+				585254DB1A41FB97000C816A /* Simulator.swift */,
 				589E48731A40A651008FC76D /* Inventory.swift */,
 				587C01C81A408EC3008F58EB /* Images.xcassets */,
 				587C01CA1A408EC3008F58EB /* LaunchScreen.xib */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				589E48741A40A651008FC76D /* Inventory.swift in Sources */,
+				585254DC1A41FB97000C816A /* Simulator.swift in Sources */,
 				587C01C41A408EC3008F58EB /* ViewController.swift in Sources */,
 				589E48721A40A1E6008FC76D /* InventoryBrain.swift in Sources */,
 				587C01C21A408EC3008F58EB /* AppDelegate.swift in Sources */,

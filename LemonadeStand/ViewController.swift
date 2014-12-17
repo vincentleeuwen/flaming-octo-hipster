@@ -102,6 +102,11 @@ class ViewController: UIViewController {
     
     // Start day button pressed
     @IBAction func startDayButtonPressed(sender: AnyObject) {
+        let lemons = Double(supply.lemons)
+        let iceCubes = Double(supply.iceCubes)
+        // FIXME: Doubles only give 1 decimal, get 2 decimal places?!?
+        let ratio = lemons / iceCubes
+        println(ratio)
     }
     
     func loadAllLabels () {
@@ -124,7 +129,7 @@ class ViewController: UIViewController {
         } else {
             println("Adding ice cubes...")
             iceCubesToPurchase += 1
-            supply.lemons += 1
+            supply.iceCubes += 1
             supply.money -= product.iceCubePrice
         }
         
