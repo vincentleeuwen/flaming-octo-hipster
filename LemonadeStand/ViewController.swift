@@ -102,11 +102,10 @@ class ViewController: UIViewController {
     
     // Start day button pressed
     @IBAction func startDayButtonPressed(sender: AnyObject) {
-        let lemons = Double(supply.lemons)
-        let iceCubes = Double(supply.iceCubes)
-        // FIXME: Doubles only give 1 decimal, get 2 decimal places?!?
-        let ratio = lemons / iceCubes
-        println(ratio)
+        let ratio = Double(lemonsToMix) / Double(iceCubesToMix)
+        println("ratio: " + "\(ratio)")
+        let randomNumber = Int(arc4random_uniform(UInt32(10)))
+        println("random number: " + "\(randomNumber)")
     }
     
     func loadAllLabels () {
