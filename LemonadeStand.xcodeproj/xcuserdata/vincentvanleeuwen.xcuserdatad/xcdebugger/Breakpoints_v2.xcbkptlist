@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LemonadeStand/Inventory.swift"
-            timestampString = "440529237.983335"
+            timestampString = "440615646.057258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "inventoryItem"
             landmarkType = "3">
          </BreakpointContent>

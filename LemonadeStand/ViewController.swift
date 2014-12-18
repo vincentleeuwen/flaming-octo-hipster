@@ -102,10 +102,54 @@ class ViewController: UIViewController {
     
     // Start day button pressed
     @IBAction func startDayButtonPressed(sender: AnyObject) {
-        let ratio = Double(lemonsToMix) / Double(iceCubesToMix)
-        println("ratio: " + "\(ratio)")
-        let randomNumber = Int(arc4random_uniform(UInt32(10)))
-        println("random number: " + "\(randomNumber)")
+        // transactions based on items to mix
+        var enoughSupplies = false
+        if (supply.lemons >= lemonsToMix ) {
+            supply.lemons -= lemonsToMix
+            enoughSupplies = true
+        } else {
+            showAlertWithText(message: "You have no more lemons!")
+        }
+        if (supply.iceCubes >= iceCubesToMix) {
+            supply.iceCubes -= iceCubesToMix
+            enoughSupplies = true
+        } else {
+            showAlertWithText(message: "You have no more ice cubes!")
+        }
+        println(enoughSupplies)
+        if (enoughSupplies == true) {
+            // start simulation
+            let lemonadeMixRatio = Double(lemonsToMix) / Double(iceCubesToMix)
+            println("ratio: " + "\(lemonadeMixRatio)")
+            let randomNumberOfCustomers = calculateWeather(Int(arc4random_uniform(UInt32(10))))
+//            println("random number: " + "\(randomNumberOfCustomers)")
+            for var i=0; i < randomNumberOfCustomers; i++ {
+//             println(i)
+                var customer = Customer()
+                customer.calculatePreference()
+//            println(customer.preference)
+                var result = ""
+                if (customer.preference < 0.4 && lemonadeMixRatio > 1) {
+                    result = "Preference customer #" + "\(i + 1)" + ": " + "\(customer.preference)" + ". Paid!"
+                    println(result)
+                    supply.money += 1
+                } else if (customer.preference >= 0.4 && customer.preference <= 0.6 && lemonadeMixRatio == 1) {
+                    result = "Preference customer #" + "\(i + 1)" + ": " + "\(customer.preference)" + ". Paid!"
+                    println(result)
+                    supply.money += 1
+                } else if (customer.preference > 0.6 && lemonadeMixRatio < 1) {
+                    result = "Preference customer #" + "\(i + 1)" + ": " + "\(customer.preference)" + ". Paid!"
+                    println(result)
+                    supply.money += 1
+                } else {
+                    result = "Preference customer #" + "\(i + 1)" + ": " + "\(customer.preference)" + ". No match, no revenue!"
+                    println(result)
+                }
+            }
+        lemonsToPurchase = 0
+        iceCubesToPurchase = 0
+        loadAllLabels()
+        }
     }
     
     func loadAllLabels () {
@@ -155,21 +199,21 @@ class ViewController: UIViewController {
         if (product.isLemon == true) {
             if ((lemonsToMix + delta) > -1) {
                 lemonsToMix += delta
-                if (supply.lemons > 0 ) {
-                    supply.lemons -= delta
-                } else {
-                    showAlertWithText(message: "You have no more lemons!")
-                }
+//                if (supply.lemons > 0 ) {
+//                    supply.lemons -= delta
+//                } else {
+//                    showAlertWithText(message: "You have no more lemons!")
+//                }
             }
 
         } else {
             if ((iceCubesToMix + delta) > -1) {
                 iceCubesToMix += delta
-                if (supply.iceCubes > 0) {
-                    supply.iceCubes -= delta
-                } else {
-                    showAlertWithText(message: "No more ice cubes!")
-                }
+//                if (supply.iceCubes > 0) {
+//                    supply.iceCubes -= delta
+//                } else {
+//                    showAlertWithText(message: "No more ice cubes!")
+//                }
 
             }
         }
@@ -191,6 +235,26 @@ class ViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
-
+    func calculateWeather (customers: Int) -> Int {
+        // calculate weather based on random number
+        var adjustedCustomers = 0
+        let randomNumber = Int(arc4random_uniform(UInt32(3)))
+        println(customers)
+//        return customers
+        switch randomNumber {
+        case(0):
+            println("Cold")
+            adjustedCustomers = customers - 3
+        case(1):
+            println("Mild")
+            adjustedCustomers = customers + 1
+        case(2):
+            println("Warm")
+            adjustedCustomers = customers + 5
+        default:
+            adjustedCustomers = customers
+        }
+        return adjustedCustomers
+    }
 }
 
