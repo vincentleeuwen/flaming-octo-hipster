@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     // step 3 outlets
     @IBOutlet weak var moreLemonsLabel: UILabel!
     @IBOutlet weak var moreIceCubesLabel: UILabel!
+    // weather outlet
+    @IBOutlet weak var weatherImage: UIImageView!
+    
     
     // set variables
     var supply = Supplies()
@@ -244,13 +247,16 @@ class ViewController: UIViewController {
         switch randomNumber {
         case(0):
             println("Cold")
-            adjustedCustomers = customers - 3
+            weatherImage.image = UIImage(named: "cold-1")
+            adjustedCustomers = customers - 1
         case(1):
             println("Mild")
-            adjustedCustomers = customers + 1
+            weatherImage.image = UIImage(named: "mild-1")
+            adjustedCustomers = customers + 4
         case(2):
             println("Warm")
-            adjustedCustomers = customers + 5
+            weatherImage.image = UIImage(named: "warm-1")
+            adjustedCustomers = customers + 9
         default:
             adjustedCustomers = customers
         }
